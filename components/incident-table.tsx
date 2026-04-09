@@ -194,22 +194,26 @@ export function IncidentTable({
                     </TableCell>
                   </TableRow>
                   {expandedIncidentId === incident.id && (
-                    <TableRow key={`${incident.id}-expanded`} className="border-border bg-secondary/50">
-                      <TableCell colSpan={8} className="p-4">
-                        <div className="grid gap-4 md:grid-cols-2">
-                          <div className="rounded-lg border border-border bg-card p-4">
-                            <h4 className="mb-2 text-sm font-medium text-primary">Call Transcript</h4>
-                            <p className="text-sm text-muted-foreground leading-relaxed">
-                              {incident.transcript}
-                            </p>
-                          </div>
-                          <div className="rounded-lg border border-border bg-card p-4">
-                            <h4 className="mb-2 text-sm font-medium text-primary">AI Summary</h4>
-                            <p className="text-sm text-foreground leading-relaxed">{incident.summary}</p>
-                          </div>
+                   <TableRow key={`${incident.id}-expanded`} className="border-border bg-secondary/50">
+                    <TableCell colSpan={8} className="p-4">
+                      <div className="grid gap-4 md:grid-cols-2">
+                        <div className="rounded-lg border border-border bg-card p-4">
+                          <h4 className="mb-2 text-sm font-medium text-primary">Call Transcript</h4>
+                          {/* added break-words and whitespace-pre-wrap */}
+                          <p className="text-sm text-muted-foreground leading-relaxed break-words whitespace-pre-wrap">
+                            {incident.transcript}
+                          </p>
                         </div>
-                      </TableCell>
-                    </TableRow>
+                        <div className="rounded-lg border border-border bg-card p-4">
+                          <h4 className="mb-2 text-sm font-medium text-primary">AI Summary</h4>
+                          {/* added break-words and whitespace-pre-wrap */}
+                          <p className="text-sm text-foreground leading-relaxed break-words whitespace-pre-wrap">
+                            {incident.summary}
+                          </p>
+                        </div>
+                      </div>
+                    </TableCell>
+                  </TableRow>
                   )}
                 </Fragment>
               ))}
@@ -218,5 +222,5 @@ export function IncidentTable({
         </div>
       </CardContent>
     </Card>
-  )
+  )     
 }
